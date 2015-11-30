@@ -14,6 +14,7 @@
 		B63EBA271C0C38AE00618D3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B63EBA261C0C38AE00618D3D /* Assets.xcassets */; };
 		B63EBA2A1C0C38AE00618D3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63EBA281C0C38AE00618D3D /* LaunchScreen.storyboard */; };
 		B63EBA351C0C38AE00618D3D /* JaywarsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA341C0C38AE00618D3D /* JaywarsUITests.m */; };
+		B63EBA421C0C395900618D3D /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA411C0C395900618D3D /* DataProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		B63EBA301C0C38AE00618D3D /* JaywarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaywarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63EBA341C0C38AE00618D3D /* JaywarsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JaywarsUITests.m; sourceTree = "<group>"; };
 		B63EBA361C0C38AE00618D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B63EBA401C0C395900618D3D /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
+		B63EBA411C0C395900618D3D /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		B63EBA191C0C38AE00618D3D /* Jaywars */ = {
 			isa = PBXGroup;
 			children = (
+				B63EBA3F1C0C390900618D3D /* Service */,
 				B63EBA1D1C0C38AE00618D3D /* AppDelegate.h */,
 				B63EBA1E1C0C38AE00618D3D /* AppDelegate.m */,
 				B63EBA201C0C38AE00618D3D /* ViewController.h */,
@@ -109,6 +113,15 @@
 				B63EBA361C0C38AE00618D3D /* Info.plist */,
 			);
 			path = JaywarsUITests;
+			sourceTree = "<group>";
+		};
+		B63EBA3F1C0C390900618D3D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B63EBA401C0C395900618D3D /* DataProvider.h */,
+				B63EBA411C0C395900618D3D /* DataProvider.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +226,7 @@
 			files = (
 				B63EBA221C0C38AE00618D3D /* ViewController.m in Sources */,
 				B63EBA1F1C0C38AE00618D3D /* AppDelegate.m in Sources */,
+				B63EBA421C0C395900618D3D /* DataProvider.m in Sources */,
 				B63EBA1C1C0C38AE00618D3D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Jaywars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayway.kday.Jaywars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Jaywars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayway.kday.Jaywars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
