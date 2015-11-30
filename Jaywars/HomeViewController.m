@@ -73,6 +73,11 @@ static int const sections = 1;
     return cell;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - Storyboard navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
