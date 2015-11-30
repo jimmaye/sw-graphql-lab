@@ -10,6 +10,7 @@
 #import "DataProvider.h"
 #import "BasicCell.h"
 #import "MovieDetailsViewController.h"
+#import "GraphQLService.h"
 
 static NSString * const reuseIdentifier = @"BasicCell";
 static int const sections = 1;
@@ -42,6 +43,7 @@ static int const sections = 1;
     self.titleLabel.backgroundColor = [UIColor blackColor];
     self.titleLabel.textColor = [UIColor yellowColor];
     [self fetchIfNeeded];
+    [self fetchByGraphQL];
 }
 
 -(void) fetchIfNeeded {
@@ -52,6 +54,12 @@ static int const sections = 1;
             self.tableView.hidden = NO;
             [self.tableView reloadData];
         }
+    }];
+}
+
+-(void) fetchByGraphQL {
+    [[GraphQLService sharedInstance] fetchMoviesWithCompletionBlock:^(NSArray<SWFilm *> *movies) {
+        NSLog(@"movies fetched %@", movies);
     }];
 }
 
