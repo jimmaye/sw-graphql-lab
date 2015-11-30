@@ -8,7 +8,12 @@
 
 #import "GraphQLService.h"
 
-static NSString * const root = @"http://localhost:59103";
+static NSString * const root = @"http://localhost:60688";
+static NSString * const queryFormat = @"%@?query=%@";
+static NSString * const filmsAndCharacters = @"{allFilms{films{episodeID,title,director,producers,openingCrawl,characterConnection{characters{name}}}}}";
+
+static NSString * const contentType = @"application/graphql";
+static NSString * const acceptType = @"application/json";
 
 @interface GraphQLService()
 
@@ -29,58 +34,65 @@ static NSString * const root = @"http://localhost:59103";
     return service;
 }
 
-
 -(NSURLRequest *)urlRequestForURL:(NSURL *)url {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPShouldUsePipelining = YES;
-    [request setValue:@"application/graphql" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+    [request setValue:acceptType forHTTPHeaderField:@"Accept"];
     return [request copy];
 }
 
-
 -(void)fetchMoviesWithCompletionBlock:(void (^)(NSArray<SWFilm*> *movies))completion {
-    NSString *query = @"{allFilms{films{episodeID,title,director,producers,openingCrawl}}}";
-    
-    NSString *url = [NSString stringWithFormat:@"%@?query=%@", root, [query stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet]];
-    NSLog(@"URL %@", url);
+    NSString *url = [NSString stringWithFormat:queryFormat, root, [filmsAndCharacters stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet]];
     NSURLRequest *request = [self urlRequestForURL:[NSURL URLWithString:url]];
-    
-    /*[self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"stuff");
-    }];
-    */
-    
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        id responseObject = nil;
-        if (!error && data) {
-            responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        }
-        
         NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-        
         if ((statusCode / 100) != 2) {
-            NSDictionary *userInfo = @{
-                                       NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Request failed with status code %ld: %@", (long)statusCode, [NSHTTPURLResponse localizedStringForStatusCode:statusCode]],
-                                       NSURLErrorFailingURLErrorKey: [response URL]
-                                       };
-            
+            NSDictionary *userInfo =
+                @{ NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Request failed with status code %ld: %@",
+                                               (long)statusCode,
+                                               [NSHTTPURLResponse localizedStringForStatusCode:statusCode]],
+                   NSURLErrorFailingURLErrorKey: [response URL]
+            };
             error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorBadServerResponse userInfo:userInfo];
             NSLog(@"Error %@", error);
-        } else if (completion) {
-            NSLog(@"Completion success");
-            
-            
+        } else {
+            NSError *jsonError;
+            NSDictionary *jsonDictionary = [[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError] valueForKey:@"data"];
+            if(jsonError) {
+                // check the error description
+                NSLog(@"json error : %@", [jsonError localizedDescription]);
+            } else {
+                NSArray *films = jsonDictionary[@"allFilms"][@"films"];
+                __block NSMutableArray<SWFilm *>*result = [[NSMutableArray alloc] init];
+                [films enumerateObjectsUsingBlock:^(NSDictionary *  _Nonnull filmDict, NSUInteger idx, BOOL * _Nonnull stop) {
+                    NSError *error;
+                    SWFilm *film = [MTLJSONAdapter modelOfClass:[SWFilm class] fromJSONDictionary:filmDict  error:&error];
+                    film.episodeID = filmDict[@"episodeID"];
+                    film.openingCrawl = filmDict[@"openingCrawl"];
+                    if (error) {
+                    } else {
+                        NSArray *personDicts = filmDict[@"characterConnection"][@"characters"];
+                        NSMutableArray<SWPerson *>*persons = [[NSMutableArray alloc] init];
+                        [personDicts enumerateObjectsUsingBlock:^(NSDictionary  * _Nonnull personDict, NSUInteger idx, BOOL * _Nonnull stop) {
+                            NSError *error;
+                            [persons addObject:[MTLJSONAdapter modelOfClass:[SWPerson class] fromJSONDictionary:personDict  error:&error]];
+                        }];
+                        film.characters = persons;
+                        film.producer = [filmDict[@"producers"] componentsJoinedByString:@", "];
+                        [result addObject:film];
+                    }
+                }];
+                if (completion) {
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        completion(result);
+                    }];
+                }
+            }
         }
     }];
     
     [task resume];
-    
-}
-
--(void)fetchCharactersForFilm:(SWFilm *)film withCompletionBlock:(void (^)(NSArray<SWPerson*> *characters))completion {
-    
 }
 
 @end

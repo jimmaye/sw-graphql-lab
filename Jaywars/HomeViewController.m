@@ -42,7 +42,7 @@ static int const sections = 1;
     self.titleLabel.text = @"Your new SW index app";
     self.titleLabel.backgroundColor = [UIColor blackColor];
     self.titleLabel.textColor = [UIColor yellowColor];
-    [self fetchIfNeeded];
+//    [self fetchIfNeeded];
     [self fetchByGraphQL];
 }
 
@@ -59,7 +59,12 @@ static int const sections = 1;
 
 -(void) fetchByGraphQL {
     [[GraphQLService sharedInstance] fetchMoviesWithCompletionBlock:^(NSArray<SWFilm *> *movies) {
-        NSLog(@"movies fetched %@", movies);
+        [self.spinner stopAnimating];
+        self.movies = movies;
+        if (self.movies.count > 0) {
+            self.tableView.hidden = NO;
+            [self.tableView reloadData];
+        }
     }];
 }
 

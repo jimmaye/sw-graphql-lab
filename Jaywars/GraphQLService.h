@@ -15,6 +15,5 @@
 +(instancetype)sharedInstance;
 
 -(void)fetchMoviesWithCompletionBlock:(void (^)(NSArray<SWFilm*> *movies))completion;
--(void)fetchCharactersForFilm:(SWFilm *)film withCompletionBlock:(void (^)(NSArray<SWPerson*> *characters))completion;
 
 @end

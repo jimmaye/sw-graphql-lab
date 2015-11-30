@@ -27,9 +27,9 @@
     [super viewWillAppear:animated];
     self.title = [NSString stringWithFormat:@"Details for %@", self.currentFilm.title];
 
-    BOOL includeCharacters = YES; // Determines if we fetch character names or not
+    BOOL charactersAlreadyLoaded = ((SWPerson *)self.currentFilm.characters.firstObject).name && YES;
     
-    [self loadUIIfNeededWithCharacters:includeCharacters];
+    [self loadUIIfNeededWithCharacters:!charactersAlreadyLoaded];
 }
 
 -(void)loadUIIfNeededWithCharacters:(BOOL)includeCharacters {
@@ -37,8 +37,10 @@
     
     if (includeCharacters) {
         [[DataProvider sharedInstance] fetchCharactersForFilm:self.currentFilm withCompletionBlock:^(NSArray<SWPerson *> *characters) {
-            self.textView.text = [NSString stringWithFormat:@"%@ \n\nCharacters \n %@", self.textView.text, [characters valueForKey:@"name"]];
+            self.textView.text = [NSString stringWithFormat:@"%@ \n\nCharacters \n%@", self.textView.text, [characters valueForKey:@"name"]];
         }];
+    } else {
+        self.textView.text = [NSString stringWithFormat:@"%@ \n\nCharacters \n%@", self.textView.text, [[self.currentFilm.characters valueForKey:@"name"] componentsJoinedByString:@"\n"] ];
     }
 }
 
