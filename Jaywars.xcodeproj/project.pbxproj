@@ -17,6 +17,8 @@
 		B63EBA351C0C38AE00618D3D /* JaywarsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA341C0C38AE00618D3D /* JaywarsUITests.m */; };
 		B63EBA421C0C395900618D3D /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA411C0C395900618D3D /* DataProvider.m */; };
 		B63EBA471C0C413300618D3D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA461C0C413300618D3D /* HomeViewController.m */; };
+		B67CFC6C1C0C8F02000C915C /* GraphQL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B67CFC6B1C0C8F02000C915C /* GraphQL.framework */; };
+		B67CFC6F1C0C8F2B000C915C /* GraphQLService.m in Sources */ = {isa = PBXBuildFile; fileRef = B67CFC6E1C0C8F2B000C915C /* GraphQLService.m */; };
 		EC4E8EEBA22E6BB406D01DD0 /* libPods-Jaywars.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF9C7708D4F68942CDA2AAC /* libPods-Jaywars.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,9 @@
 		B63EBA411C0C395900618D3D /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		B63EBA451C0C413300618D3D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		B63EBA461C0C413300618D3D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		B67CFC6B1C0C8F02000C915C /* GraphQL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GraphQL.framework; sourceTree = "<group>"; };
+		B67CFC6D1C0C8F2B000C915C /* GraphQLService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphQLService.h; sourceTree = "<group>"; };
+		B67CFC6E1C0C8F2B000C915C /* GraphQLService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphQLService.m; sourceTree = "<group>"; };
 		D2FF10D7BEAC6208A3B56F1E /* Pods-Jaywars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jaywars.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jaywars/Pods-Jaywars.release.xcconfig"; sourceTree = "<group>"; };
 		FFF9C7708D4F68942CDA2AAC /* libPods-Jaywars.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jaywars.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67CFC6C1C0C8F02000C915C /* GraphQL.framework in Frameworks */,
 				EC4E8EEBA22E6BB406D01DD0 /* libPods-Jaywars.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +116,7 @@
 				B63EBA261C0C38AE00618D3D /* Assets.xcassets */,
 				B63EBA281C0C38AE00618D3D /* LaunchScreen.storyboard */,
 				B63EBA2B1C0C38AE00618D3D /* Info.plist */,
+				B67CFC6A1C0C8EF3000C915C /* Frameworks */,
 				B63EBA1A1C0C38AE00618D3D /* Supporting Files */,
 			);
 			path = Jaywars;
@@ -137,8 +144,18 @@
 			children = (
 				B63EBA401C0C395900618D3D /* DataProvider.h */,
 				B63EBA411C0C395900618D3D /* DataProvider.m */,
+				B67CFC6D1C0C8F2B000C915C /* GraphQLService.h */,
+				B67CFC6E1C0C8F2B000C915C /* GraphQLService.m */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		B67CFC6A1C0C8EF3000C915C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B67CFC6B1C0C8F02000C915C /* GraphQL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E1614A867983BDA7082B07BB /* Frameworks */ = {
@@ -314,6 +331,7 @@
 				B63EBA421C0C395900618D3D /* DataProvider.m in Sources */,
 				B63EBA471C0C413300618D3D /* HomeViewController.m in Sources */,
 				B632B60C1C0C62A8000EA8A3 /* MovieDetailsViewController.m in Sources */,
+				B67CFC6F1C0C8F2B000C915C /* GraphQLService.m in Sources */,
 				B63EBA1C1C0C38AE00618D3D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +461,10 @@
 			baseConfigurationReference = 817ED9799105C184730ADFE2 /* Pods-Jaywars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Jaywars",
+				);
 				INFOPLIST_FILE = Jaywars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -457,6 +479,10 @@
 			baseConfigurationReference = D2FF10D7BEAC6208A3B56F1E /* Pods-Jaywars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Jaywars",
+				);
 				INFOPLIST_FILE = Jaywars/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
