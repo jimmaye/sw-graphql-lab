@@ -8,15 +8,16 @@
 
 #import "HomeViewController.h"
 #import "DataProvider.h"
+#import "BasicCell.h"
 
-
-static NSString * const reuseIdentifier = @"homeViewControllerCellIdentifier";
+static NSString * const reuseIdentifier = @"BasicCell";
 static int const sections = 1;
 
 @interface HomeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray<SWFilm*> *movies;
 
 @end
@@ -26,21 +27,33 @@ static int const sections = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.hidden = YES;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 80.0;
+    [self.spinner startAnimating];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.titleLabel.text = @"Jaywars - your SW index";
+    self.titleLabel.backgroundColor = [UIColor blackColor];
+    self.titleLabel.textColor = [UIColor yellowColor];
     [self fetchIfNeeded];
 }
 
 -(void) fetchIfNeeded {
     [[DataProvider sharedInstance] fetchMoviesWithCompletionBlock:^(NSArray<SWFilm *> *movies) {
+        [self.spinner stopAnimating];
         self.movies = movies;
-        [self.tableView reloadData];
+        if (self.movies.count > 0) {
+            self.tableView.hidden = NO;
+            [self.tableView reloadData];
+        }
     }];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - Table View
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return sections;
@@ -51,14 +64,12 @@ static int const sections = 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
-    }
+    BasicCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+
     SWFilm *film = self.movies[indexPath.row];
     
-    cell.textLabel.text = film.title;
-    cell.detailTextLabel.text = film.openingCrawl;
+    cell.titleLabel.text = film.title;
+    cell.subtitleLabel.text = [NSString stringWithFormat:@"Episode: %@ \nDirector: %@ \nProducer: %@", film.episodeID, film.director, film.director];
     return cell;
 }
 

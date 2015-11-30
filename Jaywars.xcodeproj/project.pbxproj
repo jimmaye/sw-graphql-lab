@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B632B6091C0C5911000EA8A3 /* BasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B632B6081C0C5911000EA8A3 /* BasicCell.m */; };
 		B63EBA1C1C0C38AE00618D3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA1B1C0C38AE00618D3D /* main.m */; };
 		B63EBA1F1C0C38AE00618D3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA1E1C0C38AE00618D3D /* AppDelegate.m */; };
-		B63EBA221C0C38AE00618D3D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA211C0C38AE00618D3D /* ViewController.m */; };
 		B63EBA251C0C38AE00618D3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63EBA231C0C38AE00618D3D /* Main.storyboard */; };
 		B63EBA271C0C38AE00618D3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B63EBA261C0C38AE00618D3D /* Assets.xcassets */; };
 		B63EBA2A1C0C38AE00618D3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63EBA281C0C38AE00618D3D /* LaunchScreen.storyboard */; };
@@ -31,12 +31,12 @@
 
 /* Begin PBXFileReference section */
 		817ED9799105C184730ADFE2 /* Pods-Jaywars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jaywars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jaywars/Pods-Jaywars.debug.xcconfig"; sourceTree = "<group>"; };
+		B632B6071C0C5911000EA8A3 /* BasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicCell.h; sourceTree = "<group>"; };
+		B632B6081C0C5911000EA8A3 /* BasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicCell.m; sourceTree = "<group>"; };
 		B63EBA171C0C38AE00618D3D /* Jaywars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaywars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63EBA1B1C0C38AE00618D3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B63EBA1D1C0C38AE00618D3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B63EBA1E1C0C38AE00618D3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B63EBA201C0C38AE00618D3D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B63EBA211C0C38AE00618D3D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B63EBA241C0C38AE00618D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B63EBA261C0C38AE00618D3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B63EBA291C0C38AE00618D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,10 +97,10 @@
 				B63EBA3F1C0C390900618D3D /* Service */,
 				B63EBA1D1C0C38AE00618D3D /* AppDelegate.h */,
 				B63EBA1E1C0C38AE00618D3D /* AppDelegate.m */,
+				B632B6071C0C5911000EA8A3 /* BasicCell.h */,
+				B632B6081C0C5911000EA8A3 /* BasicCell.m */,
 				B63EBA451C0C413300618D3D /* HomeViewController.h */,
 				B63EBA461C0C413300618D3D /* HomeViewController.m */,
-				B63EBA201C0C38AE00618D3D /* ViewController.h */,
-				B63EBA211C0C38AE00618D3D /* ViewController.m */,
 				B63EBA231C0C38AE00618D3D /* Main.storyboard */,
 				B63EBA261C0C38AE00618D3D /* Assets.xcassets */,
 				B63EBA281C0C38AE00618D3D /* LaunchScreen.storyboard */,
@@ -304,7 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B63EBA221C0C38AE00618D3D /* ViewController.m in Sources */,
+				B632B6091C0C5911000EA8A3 /* BasicCell.m in Sources */,
 				B63EBA1F1C0C38AE00618D3D /* AppDelegate.m in Sources */,
 				B63EBA421C0C395900618D3D /* DataProvider.m in Sources */,
 				B63EBA471C0C413300618D3D /* HomeViewController.m in Sources */,
@@ -442,6 +442,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayway.kday.Jaywars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -455,6 +456,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayway.kday.Jaywars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

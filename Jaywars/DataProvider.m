@@ -40,7 +40,8 @@
             } else {
                 if (completion) {
                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                        completion(result.items);
+                        NSArray *sorted = [result.items sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"episodeID" ascending:YES]]];
+                        completion(sorted);
                     }];
 
                 }
