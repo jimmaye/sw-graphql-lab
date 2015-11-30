@@ -23,6 +23,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <sections/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="SNs-gi-gC8"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="j1Y-mO-eKj"/>
@@ -105,10 +106,10 @@
                                 <exclude reference="c6O-cL-dOS"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="JQw-Lc-OJT"/>
                                 <exclude reference="Bkc-mR-kYi"/>
                                 <exclude reference="Ewp-RN-BDf"/>
                                 <exclude reference="sA9-Js-xtP"/>
-                                <exclude reference="JQw-Lc-OJT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -116,10 +117,10 @@
                                 <include reference="c6O-cL-dOS"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="JQw-Lc-OJT"/>
                                 <include reference="Bkc-mR-kYi"/>
                                 <include reference="Ewp-RN-BDf"/>
                                 <include reference="sA9-Js-xtP"/>
-                                <include reference="JQw-Lc-OJT"/>
                             </mask>
                         </variation>
                     </view>

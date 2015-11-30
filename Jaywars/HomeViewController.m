@@ -7,6 +7,8 @@
 //
 
 #import "HomeViewController.h"
+#import "DataProvider.h"
+
 
 static NSString * const reuseIdentifier = @"homeViewControllerCellIdentifier";
 static int const sections = 1;
@@ -14,8 +16,8 @@ static int const sections = 1;
 @interface HomeViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *movies;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray<SWFilm*> *movies;
 
 @end
 
@@ -28,10 +30,14 @@ static int const sections = 1;
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self fetchIfNeeded];
 }
 
 -(void) fetchIfNeeded {
-    
+    [[DataProvider sharedInstance] fetchMoviesWithCompletionBlock:^(NSArray<SWFilm *> *movies) {
+        self.movies = movies;
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -47,8 +53,12 @@ static int const sections = 1;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
+    SWFilm *film = self.movies[indexPath.row];
+    
+    cell.textLabel.text = film.title;
+    cell.detailTextLabel.text = film.openingCrawl;
     return cell;
 }
 

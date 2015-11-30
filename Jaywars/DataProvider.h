@@ -6,10 +6,12 @@
 //  Copyright © 2015 Jayway. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "SWFilm.h"
 
 @interface DataProvider : NSObject
 
 +(DataProvider*) sharedInstance;
+
+-(void)fetchMoviesWithCompletionBlock:(void (^)(NSArray<SWFilm*> *movies))completion;
 
 @end
