@@ -37,8 +37,12 @@ static NSString * const allMovies = @"allMoviesKey";
     return dataProvider;
 }
 
+-(void) runBlockInBackground:(void (^)(void))block {
+    [self.dataQueue addOperationWithBlock:block];
+}
+
 -(void)fetchMoviesWithCompletionBlock:(void (^)(NSArray<SWFilm*> *movies))completion {
-    [self.dataQueue addOperationWithBlock:^{
+    [self runBlockInBackground:^{
         if (completion && [self.dummyCache valueForKey:allMovies]) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 completion([self.dummyCache valueForKey:allMovies]);
@@ -60,10 +64,11 @@ static NSString * const allMovies = @"allMoviesKey";
             }];
         }
     }];
+
 }
 
 - (void)fetchCharactersForFilm:(SWFilm *)film withCompletionBlock:(void (^)(NSArray<SWPerson*> *characters))completion {
-    [self.dataQueue addOperationWithBlock:^{
+    [self runBlockInBackground:^{
         if (completion && [self.dummyCache valueForKey:film.URLString]) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 completion([self.dummyCache valueForKey:film.URLString]);
