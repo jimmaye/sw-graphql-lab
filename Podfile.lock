@@ -1,0 +1,18 @@
+PODS:
+  - Falcon (0.1.0):
+    - ISO8601DateFormatter (~> 0.7)
+    - Mantle (~> 1.5)
+  - ISO8601DateFormatter (0.7)
+  - Mantle (1.5.6):
+    - Mantle/extobjc (= 1.5.6)
+  - Mantle/extobjc (1.5.6)
+
+DEPENDENCIES:
+  - Falcon
+
+SPEC CHECKSUMS:
+  Falcon: 22f8ee522a8e62690661a210924e060891487ae0
+  ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
+  Mantle: a197db93e0f1e36194b1fdbc078219a8492eaef2
+
+COCOAPODS: 0.39.0
