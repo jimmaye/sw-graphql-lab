@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +16,50 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myD-UC-ndW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jaywaylogo" translatesAutoresizingMaskIntoConstraints="NO" id="bbM-Eh-I7F">
+                                        <rect key="frame" x="8" y="8" width="584" height="248"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bbM-Eh-I7F" secondAttribute="height" multiplier="73:31" id="KkA-8o-Qea"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Starwars API demo" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kZH-rK-nlN">
+                                        <rect key="frame" x="8" y="264" width="584" height="328"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kZH-rK-nlN" secondAttribute="height" multiplier="73:41" id="P8C-87-A7H"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.99607843137254903" green="0.88235294117647056" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kZH-rK-nlN" secondAttribute="trailing" constant="8" id="5bH-IX-C2C"/>
+                                    <constraint firstItem="bbM-Eh-I7F" firstAttribute="leading" secondItem="myD-UC-ndW" secondAttribute="leading" constant="8" id="8Oc-HR-Qkb"/>
+                                    <constraint firstAttribute="trailing" secondItem="bbM-Eh-I7F" secondAttribute="trailing" constant="8" id="DmC-Cu-5I8"/>
+                                    <constraint firstItem="kZH-rK-nlN" firstAttribute="leading" secondItem="myD-UC-ndW" secondAttribute="leading" constant="8" id="iuH-0s-JRo"/>
+                                    <constraint firstItem="kZH-rK-nlN" firstAttribute="top" secondItem="bbM-Eh-I7F" secondAttribute="bottom" constant="8" id="jN7-6z-uNy"/>
+                                    <constraint firstItem="bbM-Eh-I7F" firstAttribute="top" secondItem="myD-UC-ndW" secondAttribute="top" constant="8" id="nUZ-iv-AsY"/>
+                                    <constraint firstAttribute="bottom" secondItem="kZH-rK-nlN" secondAttribute="bottom" constant="8" id="xFl-ub-riR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="myD-UC-ndW" secondAttribute="bottom" id="BgC-Go-ojm"/>
+                            <constraint firstItem="myD-UC-ndW" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Keg-Jg-b6N"/>
+                            <constraint firstItem="myD-UC-ndW" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="a5p-Xw-CVG"/>
+                            <constraint firstAttribute="trailing" secondItem="myD-UC-ndW" secondAttribute="trailing" id="rYH-b5-7gn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +67,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Jaywaylogo" width="424" height="119"/>
+    </resources>
 </document>
