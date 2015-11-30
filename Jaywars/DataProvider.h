@@ -10,4 +10,6 @@
 
 @interface DataProvider : NSObject
 
++(DataProvider*) sharedInstance;
+
 @end

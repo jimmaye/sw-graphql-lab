@@ -10,4 +10,15 @@
 
 @implementation DataProvider
 
++(DataProvider*) sharedInstance {
+    
+    static DataProvider *dataProvider;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dataProvider = [[DataProvider alloc] init];
+    });
+    
+    return dataProvider;
+}
+
 @end

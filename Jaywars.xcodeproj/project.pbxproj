@@ -15,6 +15,7 @@
 		B63EBA2A1C0C38AE00618D3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63EBA281C0C38AE00618D3D /* LaunchScreen.storyboard */; };
 		B63EBA351C0C38AE00618D3D /* JaywarsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA341C0C38AE00618D3D /* JaywarsUITests.m */; };
 		B63EBA421C0C395900618D3D /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA411C0C395900618D3D /* DataProvider.m */; };
+		B63EBA471C0C413300618D3D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA461C0C413300618D3D /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		B63EBA361C0C38AE00618D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B63EBA401C0C395900618D3D /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		B63EBA411C0C395900618D3D /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
+		B63EBA451C0C413300618D3D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		B63EBA461C0C413300618D3D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				B63EBA3F1C0C390900618D3D /* Service */,
 				B63EBA1D1C0C38AE00618D3D /* AppDelegate.h */,
 				B63EBA1E1C0C38AE00618D3D /* AppDelegate.m */,
+				B63EBA451C0C413300618D3D /* HomeViewController.h */,
+				B63EBA461C0C413300618D3D /* HomeViewController.m */,
 				B63EBA201C0C38AE00618D3D /* ViewController.h */,
 				B63EBA211C0C38AE00618D3D /* ViewController.m */,
 				B63EBA231C0C38AE00618D3D /* Main.storyboard */,
@@ -227,6 +232,7 @@
 				B63EBA221C0C38AE00618D3D /* ViewController.m in Sources */,
 				B63EBA1F1C0C38AE00618D3D /* AppDelegate.m in Sources */,
 				B63EBA421C0C395900618D3D /* DataProvider.m in Sources */,
+				B63EBA471C0C413300618D3D /* HomeViewController.m in Sources */,
 				B63EBA1C1C0C38AE00618D3D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
