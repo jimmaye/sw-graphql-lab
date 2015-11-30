@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "DataProvider.h"
 #import "BasicCell.h"
+#import "MovieDetailsViewController.h"
 
 static NSString * const reuseIdentifier = @"BasicCell";
 static int const sections = 1;
@@ -31,12 +32,13 @@ static int const sections = 1;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 80.0;
     [self.spinner startAnimating];
+    self.title = @"Jaywars";
     
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.titleLabel.text = @"Jaywars - your SW index";
+    self.titleLabel.text = @"Your new SW index app";
     self.titleLabel.backgroundColor = [UIColor blackColor];
     self.titleLabel.textColor = [UIColor yellowColor];
     [self fetchIfNeeded];
@@ -76,14 +78,17 @@ static int const sections = 1;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"showFilmSegue" sender:self.movies[indexPath.row]];
 }
 
 #pragma mark - Storyboard navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController isKindOfClass:[MovieDetailsViewController class]]) {
+        ((MovieDetailsViewController *)segue.destinationViewController).currentFilm = (SWFilm*)sender;
+    }
+
 }
 
 @end

@@ -16,6 +16,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSDictionary *titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18],
+                                          NSForegroundColorAttributeName: [UIColor blackColor], NSBackgroundColorAttributeName : [UIColor whiteColor]};
+    [[UINavigationBar appearance] setTitleTextAttributes:titleTextAttributes];
+    
+    if ([[UINavigationBar appearance] respondsToSelector:@selector(setTranslucent:)]) {
+        [[UINavigationBar appearance] setTranslucent:NO];
+    }
+
+    
+    
     return YES;
 }
 

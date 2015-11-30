@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B632B6091C0C5911000EA8A3 /* BasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B632B6081C0C5911000EA8A3 /* BasicCell.m */; };
+		B632B60C1C0C62A8000EA8A3 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B632B60B1C0C62A8000EA8A3 /* MovieDetailsViewController.m */; };
 		B63EBA1C1C0C38AE00618D3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA1B1C0C38AE00618D3D /* main.m */; };
 		B63EBA1F1C0C38AE00618D3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EBA1E1C0C38AE00618D3D /* AppDelegate.m */; };
 		B63EBA251C0C38AE00618D3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63EBA231C0C38AE00618D3D /* Main.storyboard */; };
@@ -33,6 +34,8 @@
 		817ED9799105C184730ADFE2 /* Pods-Jaywars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jaywars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jaywars/Pods-Jaywars.debug.xcconfig"; sourceTree = "<group>"; };
 		B632B6071C0C5911000EA8A3 /* BasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicCell.h; sourceTree = "<group>"; };
 		B632B6081C0C5911000EA8A3 /* BasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicCell.m; sourceTree = "<group>"; };
+		B632B60A1C0C62A8000EA8A3 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
+		B632B60B1C0C62A8000EA8A3 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
 		B63EBA171C0C38AE00618D3D /* Jaywars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaywars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63EBA1B1C0C38AE00618D3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B63EBA1D1C0C38AE00618D3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				B632B6081C0C5911000EA8A3 /* BasicCell.m */,
 				B63EBA451C0C413300618D3D /* HomeViewController.h */,
 				B63EBA461C0C413300618D3D /* HomeViewController.m */,
+				B632B60A1C0C62A8000EA8A3 /* MovieDetailsViewController.h */,
+				B632B60B1C0C62A8000EA8A3 /* MovieDetailsViewController.m */,
 				B63EBA231C0C38AE00618D3D /* Main.storyboard */,
 				B63EBA261C0C38AE00618D3D /* Assets.xcassets */,
 				B63EBA281C0C38AE00618D3D /* LaunchScreen.storyboard */,
@@ -308,6 +313,7 @@
 				B63EBA1F1C0C38AE00618D3D /* AppDelegate.m in Sources */,
 				B63EBA421C0C395900618D3D /* DataProvider.m in Sources */,
 				B63EBA471C0C413300618D3D /* HomeViewController.m in Sources */,
+				B632B60C1C0C62A8000EA8A3 /* MovieDetailsViewController.m in Sources */,
 				B63EBA1C1C0C38AE00618D3D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
