@@ -22,5 +22,5 @@ Great, convert the demo app to Swift(and give me credits), add more information,
 We'll reserve 30 minutes (ish) for a discussion regarding the pros and cons of using GraphQL as our backend API instead of the SWAPI Rest API.
 
 # Disclaimer
-If you find your self annoyed of being presented with ObjectiveC, missing unit tests or the similar, please write all yourcomplaints on a non-exsisting paper with imgainary ink, and send it to me in -2 years , back when I might've cared :-) We'll keep focus entirely on GraphQL vs Rest, not ObjC vs. Swift, codestyle, length of skateboard etc.
-Happy hacking away!
+If you find your self annoyed of being presented with Objective-C, missing unit tests or the similar, please write all your complaints on a non-exsisting paper with imgainary ink, and send it to me in -2 years , back when I might've cared. We'll keep focus entirely on GraphQL vs Rest, not Objective-C vs. Swift, codestyle, length of skateboard and so on. 
+However, let's try to discover if Swift+GraphQL has some nice advantages etc. Happy hacking away! :-)
