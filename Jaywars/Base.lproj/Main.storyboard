@@ -8,6 +8,7 @@
         <scene sceneID="Rnt-Km-yjn">
             <objects>
                 <navigationController id="L2d-N1-trh" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5mf-tw-hef">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -56,7 +57,8 @@
                                         <exclude reference="rY1-sV-98F"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="180" y="380" width="40" height="40"/>
                                     <mask key="constraints">
                                         <include reference="D6T-Gy-5gN"/>
                                         <include reference="rY1-sV-98F"/>
@@ -80,7 +82,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="20" width="368" height="100"/>
+                                    <rect key="frame" x="16" y="64" width="368" height="100"/>
                                     <mask key="constraints">
                                         <include reference="aUA-eh-Nae"/>
                                     </mask>
@@ -169,7 +171,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="128" width="400" height="672"/>
+                                    <rect key="frame" x="0.0" y="172" width="400" height="628"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="bIf-Zn-orN"/>
@@ -251,6 +253,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="dm2-F9-Swr"/>
                     <connections>
                         <outlet property="spinner" destination="R7a-Na-1kb" id="HJ1-oA-9jQ"/>
@@ -276,8 +279,46 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-SG-9jV">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMf-3I-uxT">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.99607843139999996" green="0.88235294119999996" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GMf-3I-uxT" firstAttribute="leading" secondItem="Qb1-SG-9jV" secondAttribute="leading" id="0dQ-of-PdJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="GMf-3I-uxT" secondAttribute="trailing" id="TUJ-pE-4Gt"/>
+                                    <constraint firstItem="GMf-3I-uxT" firstAttribute="top" secondItem="Qb1-SG-9jV" secondAttribute="top" id="U72-g9-xu5"/>
+                                    <constraint firstAttribute="bottom" secondItem="GMf-3I-uxT" secondAttribute="bottom" id="kIE-Fd-AqD"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="GMf-3I-uxT"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="0dQ-of-PdJ"/>
+                                        <exclude reference="TUJ-pE-4Gt"/>
+                                        <exclude reference="U72-g9-xu5"/>
+                                        <exclude reference="kIE-Fd-AqD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="GMf-3I-uxT"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="0dQ-of-PdJ"/>
+                                        <include reference="TUJ-pE-4Gt"/>
+                                        <include reference="U72-g9-xu5"/>
+                                        <include reference="kIE-Fd-AqD"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <animations/>
@@ -311,6 +352,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="textView" destination="GMf-3I-uxT" id="B4x-DM-v6T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rda-HM-kmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

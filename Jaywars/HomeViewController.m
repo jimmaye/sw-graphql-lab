@@ -69,7 +69,7 @@ static int const sections = 1;
     BasicCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 
     SWFilm *film = self.movies[indexPath.row];
-    NSLog(@"film %@", film);
+    
     cell.titleLabel.text = film.title;
     cell.subtitleLabel.text = [NSString stringWithFormat:@"Episode: %@ \nDirector: %@ \nProducer: %@", film.episodeID, film.director, film.producer];
     return cell;

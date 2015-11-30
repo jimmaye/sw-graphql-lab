@@ -7,8 +7,10 @@
 //
 
 #import "MovieDetailsViewController.h"
+#import "DataProvider.h"
 
 @interface MovieDetailsViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -16,20 +18,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.textView.textColor = [UIColor yellowColor];
+    self.textView.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.currentFilm) {
-        self.title = [NSString stringWithFormat:@"Details for %@", self.currentFilm.title];
-    }
+    self.title = [NSString stringWithFormat:@"Details for %@", self.currentFilm.title];
 
+    BOOL includeCharacters = YES; // Determines if we fetch character names or not
+    
+    [self loadUIIfNeededWithCharacters:includeCharacters];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)loadUIIfNeededWithCharacters:(BOOL)includeCharacters {
+    [self fillTextViewWithDefaultFilmInformation];
+    
+    if (includeCharacters) {
+        [[DataProvider sharedInstance] fetchCharactersForFilm:self.currentFilm withCompletionBlock:^(NSArray<SWPerson *> *characters) {
+            self.textView.text = [NSString stringWithFormat:@"%@ \n\nCharacters \n %@", self.textView.text, [characters valueForKey:@"name"]];
+        }];
+    }
+}
+
+
+- (void) fillTextViewWithDefaultFilmInformation {
+    self.textView.text = [NSString stringWithFormat:@"Episode \n%@ \n\nOpening text \n%@ \n\nDirector \n%@ \n\nProducer(s) \n%@",
+                          self.currentFilm.episodeID,
+                          [[self.currentFilm.openingCrawl componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "],
+                          self.currentFilm.director,
+                          self.currentFilm.producer];
 }
 
 @end

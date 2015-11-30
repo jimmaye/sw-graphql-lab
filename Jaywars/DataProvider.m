@@ -50,4 +50,19 @@
     }];
 }
 
+- (void)fetchCharactersForFilm:(SWFilm *)film withCompletionBlock:(void (^)(NSArray<SWPerson*> *characters))completion {
+    [self.dataQueue addOperationWithBlock:^{
+        [film getCharactersWithCompletion:^(SWResultSet *result, NSError *error) {
+            if (completion) {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    NSArray *sorted = [result.items sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+                    completion(sorted);
+                }];
+                
+            }
+        }];
+        
+    }];
+}
+
 @end
